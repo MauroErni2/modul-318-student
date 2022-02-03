@@ -1,4 +1,4 @@
-namespace SBBLite
+namespace SBBLite2
 {
     public partial class Form1 : Form
     {

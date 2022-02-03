@@ -1,6 +1,6 @@
 using SwissTransport.Core;
 
-namespace SBBLite
+namespace SBBLite3
 {
     internal static class Program
     {
@@ -13,10 +13,9 @@ namespace SBBLite
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new SwissTranport());
+            Application.Run(new Form1());
 
             ITransport transport = new Transport();
-            Application.Run(new SwissTranport());
         }
     }
 }
