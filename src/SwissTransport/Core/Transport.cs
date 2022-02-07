@@ -14,13 +14,13 @@
 
         public Stations GetStations(string query)
         {
-            if (string.IsNullOrEmpty(query))
+            if (!string.IsNullOrEmpty(query))
             {
-                throw new ArgumentNullException(nameof(query));
+                var uri = new Uri($"{WebApiHost}locations?query={query}");
+                return this.GetObject<Stations>(uri);
             }
+            return null;
 
-            var uri = new Uri($"{WebApiHost}locations?query={query}");
-            return this.GetObject<Stations>(uri);
         }
 
         public StationBoardRoot GetStationBoard(string station, string id)
