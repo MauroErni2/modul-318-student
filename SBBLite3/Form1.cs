@@ -20,11 +20,11 @@ namespace SBBLite3
     {
         private readonly Transport _transport = new Transport();
         private string[] _currentStationNamesCollection = default;
-        private const string _CurrentPositionText = "⌖ Aktueller Standort";
-        private Size _formsize;
-        private ListViewItem _focusedItem;
-        private ListView _selectedListView;
-        private string _emailText;
+        //private const string _CurrentPositionText = "⌖ Aktueller Standort";
+        //private Size _formsize;
+        //private ListViewItem _focusedItem;
+        //private ListView _selectedListView;
+        //private string _emailText;
 
         public Form1()
         {
@@ -33,12 +33,12 @@ namespace SBBLite3
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            btnSearch.Enabled = false;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
 
 
@@ -55,16 +55,17 @@ namespace SBBLite3
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            lvConnections.Items.Clear();
             string fromStation = tbStationFrom.Text;
             string toStation = tbStationTo.Text;
 
             if (fromStation != "" && toStation != "")
             {
                 Connections possibleConnections;
-                possibleConnections = _transport.GetConnections(fromStation, toStation);
+                possibleConnections = _transport.GetConnections(fromStation,toStation);
                 foreach (Connection connection in possibleConnections.ConnectionList)
                 {
-                    var lvi = new ListViewItem(new string[] { connection.Duration, connection.From.Station.Name, connection.From.Platform, connection.To.Station.Name, connection.From.Departure.ToString()});
+                    var lvi = new ListViewItem(new string[] { connection.From.Departure.ToString(), connection.From.Station.Name, connection.From.Platform, connection.To.Station.Name, connection.Duration});
                     lvConnections.Items.Add(lvi);
                     //string[] lineValue = { connection.From.ToString(), connection.To.ToString() };
                     //var listviewitem = new ListViewItem(lineValue);
@@ -104,6 +105,59 @@ namespace SBBLite3
                     }
                 }
             }
+
+            string fromStation = tbStationFrom.Text;
+            string toStation = tbStationTo.Text;
+            if (fromStation != "" && toStation != "")
+            {
+                btnSearch.Enabled = true;
+            }
+            else btnSearch.Enabled = false;
+        }
+
+        private void tbStationTable_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnAbfahrt_Click(object sender, EventArgs e)
+        {
+            
+            lvConnectionTab.Items.Clear();
+            string fromStation = tbStationTable.Text;
+            //if (fromStation != "" )
+            //{
+            //    Connections possibleConnections;
+            //    possibleConnections = _transport.GetConnections(fromStation, "");
+            //    foreach (Connection connection in possibleConnections.ConnectionList)
+            //    {
+            //        var lvi = new ListViewItem(new string[] { connection.From.Departure.ToString(), connection.From.Station.Name, connection.From.Platform, connection.To.Station.Name, connection.Duration });
+            //        lvConnectionTab.Items.Add(lvi);
+            //        //string[] lineValue = { connection.From.ToString(), connection.To.ToString() };
+            //        //var listviewitem = new ListViewItem(lineValue);
+            //        //lvConnections.Items.Add(listviewitem);
+            //    }
+            //}
+
+            if (fromStation != "")
+            {
+
+
+                StationBoardRoot possibleStations;
+                possibleStations = _transport.GetStationBoard(fromStation, "");
+                    foreach (StationBoard station in possibleStations.Entries)
+                {
+                    var lvi = new ListViewItem(new string[] { station.Stop.Departure.TimeOfDay.ToString(), station.To  });
+                    lvConnectionTab.Items.Add(lvi);
+                }
+            }
+        }
+
+        private void btnSearchStations_Click(object sender, EventArgs e)
+        {
+                
+            
+
         }
     }
 }

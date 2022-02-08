@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwissTransport", "src\Swiss
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwissTransportTest", "tests\SwissTransportTest\SwissTransportTest.csproj", "{959C6E54-5B1C-40F5-938A-C57B17451421}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SBBLite", "SBBLite3\SBBLite.csproj", "{8BDEC017-E3B5-4B38-A8CA-2D92910202E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SBBLite", "SBBLite3\SBBLite.csproj", "{8BDEC017-E3B5-4B38-A8CA-2D92910202E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SBBLiteTest", "SBBLiteTest\SBBLiteTest.csproj", "{9A9BD55F-F89D-4BAF-BBC0-6391F8BE0804}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{8BDEC017-E3B5-4B38-A8CA-2D92910202E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BDEC017-E3B5-4B38-A8CA-2D92910202E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BDEC017-E3B5-4B38-A8CA-2D92910202E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A9BD55F-F89D-4BAF-BBC0-6391F8BE0804}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A9BD55F-F89D-4BAF-BBC0-6391F8BE0804}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A9BD55F-F89D-4BAF-BBC0-6391F8BE0804}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A9BD55F-F89D-4BAF-BBC0-6391F8BE0804}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
