@@ -31,13 +31,14 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabVerbindungen = new System.Windows.Forms.TabPage();
+            this.dtpFromTime = new System.Windows.Forms.DateTimePicker();
             this.lvConnections = new System.Windows.Forms.ListView();
             this.chDeparture = new System.Windows.Forms.ColumnHeader();
             this.chFromStation = new System.Windows.Forms.ColumnHeader();
             this.chFromPlattform = new System.Windows.Forms.ColumnHeader();
             this.chToStation = new System.Windows.Forms.ColumnHeader();
             this.chDuration = new System.Windows.Forms.ColumnHeader();
-            this.dtpAbfahrtVon = new System.Windows.Forms.DateTimePicker();
+            this.dtpFromDate = new System.Windows.Forms.DateTimePicker();
             this.lbAbfahrtVon = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnMail = new System.Windows.Forms.Button();
@@ -75,6 +76,7 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.connectionBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.connectionBindingSource6 = new System.Windows.Forms.BindingSource(this.components);
+            this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.tabControl1.SuspendLayout();
             this.tabVerbindungen.SuspendLayout();
             this.tabAbfahrt.SuspendLayout();
@@ -110,8 +112,9 @@
             // 
             // tabVerbindungen
             // 
+            this.tabVerbindungen.Controls.Add(this.dtpFromTime);
             this.tabVerbindungen.Controls.Add(this.lvConnections);
-            this.tabVerbindungen.Controls.Add(this.dtpAbfahrtVon);
+            this.tabVerbindungen.Controls.Add(this.dtpFromDate);
             this.tabVerbindungen.Controls.Add(this.lbAbfahrtVon);
             this.tabVerbindungen.Controls.Add(this.btnSearch);
             this.tabVerbindungen.Controls.Add(this.btnMail);
@@ -126,6 +129,14 @@
             this.tabVerbindungen.TabIndex = 0;
             this.tabVerbindungen.Text = "Verbindungen";
             this.tabVerbindungen.UseVisualStyleBackColor = true;
+            // 
+            // dtpFromTime
+            // 
+            this.dtpFromTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpFromTime.Location = new System.Drawing.Point(465, 135);
+            this.dtpFromTime.Name = "dtpFromTime";
+            this.dtpFromTime.Size = new System.Drawing.Size(110, 31);
+            this.dtpFromTime.TabIndex = 10;
             // 
             // lvConnections
             // 
@@ -169,12 +180,12 @@
             this.chDuration.Text = "Duration";
             this.chDuration.Width = 180;
             // 
-            // dtpAbfahrtVon
+            // dtpFromDate
             // 
-            this.dtpAbfahrtVon.Location = new System.Drawing.Point(151, 136);
-            this.dtpAbfahrtVon.Name = "dtpAbfahrtVon";
-            this.dtpAbfahrtVon.Size = new System.Drawing.Size(300, 31);
-            this.dtpAbfahrtVon.TabIndex = 8;
+            this.dtpFromDate.Location = new System.Drawing.Point(151, 136);
+            this.dtpFromDate.Name = "dtpFromDate";
+            this.dtpFromDate.Size = new System.Drawing.Size(300, 31);
+            this.dtpFromDate.TabIndex = 8;
             // 
             // lbAbfahrtVon
             // 
@@ -187,7 +198,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(499, 134);
+            this.btnSearch.Location = new System.Drawing.Point(498, 73);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(197, 37);
             this.btnSearch.TabIndex = 5;
@@ -355,7 +366,7 @@
             // 
             // chpossStations
             // 
-            this.chpossStations.Text = "Departure";
+            this.chpossStations.Text = "Station";
             this.chpossStations.Width = 890;
             // 
             // button1
@@ -478,7 +489,7 @@
         private BindingSource stationsBindingSource2;
         private Button btnSearch;
         private BindingSource connectionBindingSource2;
-        private DateTimePicker dtpAbfahrtVon;
+        private DateTimePicker dtpFromDate;
         private Label lbAbfahrtVon;
         private BindingSource connectionBindingSource3;
         private Button btnClose;
@@ -498,5 +509,7 @@
         private ListView lvSearchStations;
         private ColumnHeader chpossStations;
         private Button btnSearchStations;
+        private DateTimePicker dtpFromTime;
+        private FontDialog fontDialog1;
     }
 }

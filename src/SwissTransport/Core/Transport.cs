@@ -54,15 +54,11 @@
             return this.GetObject<StationBoardRoot>(test2);
         }
 
-        public Connections GetConnections(string fromStation, string toStation)
+        public Connections GetConnections(string fromStation, string toStation, DateTime fromDate, DateTime fromTime)
         {
-            if (string.IsNullOrEmpty(fromStation))
-            {
-            }
-
             if (!string.IsNullOrEmpty(toStation))
             {
-                var uri = new Uri($"{WebApiHost}connections?from={fromStation}&to={toStation}");
+                var uri = new Uri($"{WebApiHost}connections?from={fromStation}&to={toStation}&date={fromDate}&time={fromTime}");
                 return this.GetObject<Connections>(uri);
             }
             else

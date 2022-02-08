@@ -58,11 +58,13 @@ namespace SBBLite3
             lvConnections.Items.Clear();
             string fromStation = tbStationFrom.Text;
             string toStation = tbStationTo.Text;
+            DateTime FromDate = dtpFromDate.Value;
+            DateTime FromTime = dtpFromTime.Value;
 
             if (fromStation != "" && toStation != "")
             {
                 Connections possibleConnections;
-                possibleConnections = _transport.GetConnections(fromStation,toStation);
+                possibleConnections = _transport.GetConnections(fromStation,toStation, FromDate, FromTime);
                 foreach (Connection connection in possibleConnections.ConnectionList)
                 {
                     var lvi = new ListViewItem(new string[] { connection.From.Departure.ToString(), connection.From.Station.Name, connection.From.Platform, connection.To.Station.Name, connection.Duration});
@@ -155,8 +157,25 @@ namespace SBBLite3
 
         private void btnSearchStations_Click(object sender, EventArgs e)
         {
+            lvSearchStations.Items.Clear();
+            var stations = _transport.GetStations(tbStation.Text);
+
+            if (stations != null)
+            {
+                if (stations.StationList.Count > 0)
+                {
+                    // Die Namen der verfügbaren Stationen speichern
+                    string[] stationNames = stations.StationList.Select(station => station.Name).ToArray();
+                    foreach(string stationName in stationNames)
+                    {
+                        lvSearchStations.Items.Add(new ListViewItem(stationName));
+                    }
+
+                }
                 
-            
+
+            }
+
 
         }
     }
