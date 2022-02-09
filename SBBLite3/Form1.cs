@@ -36,16 +36,6 @@ namespace SBBLite3
             btnSearch.Enabled = false;
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-
-        private void btnMail_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -69,9 +59,6 @@ namespace SBBLite3
                 {
                     var lvi = new ListViewItem(new string[] { connection.From.Departure.ToString(), connection.From.Station.Name, connection.From.Platform, connection.To.Station.Name, connection.Duration});
                     lvConnections.Items.Add(lvi);
-                    //string[] lineValue = { connection.From.ToString(), connection.To.ToString() };
-                    //var listviewitem = new ListViewItem(lineValue);
-                    //lvConnections.Items.Add(listviewitem);
                 }
             }
         }
@@ -80,9 +67,9 @@ namespace SBBLite3
         {
             TextBox txtBox = (TextBox)sender;
 
-            //Nur bei jedem dritten Zeichen, um die API - Abfragerate zu reduzieren
             if (txtBox.TextLength % 3 == 0)
             {
+                //Ich weiss, AutoComplete ist nicht die beste Lösung...hatte aber keine Zeit mehr. 
                 txtBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
                 var stations = _transport.GetStations(txtBox.Text);
 
@@ -90,19 +77,16 @@ namespace SBBLite3
                 {
                     if (stations.StationList.Count > 0)
                     {
-                        // Die Namen der verfügbaren Stationen speichern
                         string[] stationNames = stations.StationList.Select(station => station.Name).ToArray();
 
                         if (_currentStationNamesCollection != stationNames)
                         {
-                            // AutoComplete aktualisieren
                             txtBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
                             AutoCompleteStringCollection collection = new AutoCompleteStringCollection();
                             collection.AddRange(stationNames);
                             txtBox.AutoCompleteCustomSource = collection;
                         }
 
-                        // Aktuellen Stand zwischenspeichern, damit nur bei einer Änderung eine neue Abfrage gestartet wird
                         _currentStationNamesCollection = stationNames;
                     }
                 }
@@ -117,10 +101,6 @@ namespace SBBLite3
             else btnSearch.Enabled = false;
         }
 
-        private void tbStationTable_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
 
         private void btnAbfahrt_Click(object sender, EventArgs e)
         {
@@ -164,7 +144,6 @@ namespace SBBLite3
             {
                 if (stations.StationList.Count > 0)
                 {
-                    // Die Namen der verfügbaren Stationen speichern
                     string[] stationNames = stations.StationList.Select(station => station.Name).ToArray();
                     foreach(string stationName in stationNames)
                     {

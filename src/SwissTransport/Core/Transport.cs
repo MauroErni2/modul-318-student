@@ -22,21 +22,6 @@
             return null;
 
         }
-        //public StationBoardRoot GetStationBoard(string station, string id)
-        //{
-        //    if (string.IsNullOrEmpty(station))
-        //    {
-        //        throw new ArgumentNullException(nameof(station));
-        //    }
-
-        //    if (string.IsNullOrEmpty(id))
-        //    {
-        //        throw new ArgumentNullException(nameof(id));
-        //    }
-
-        //    var uri = new Uri($"{WebApiHost}stationboard?station={station}&id={id}");
-        //    return this.GetObject<StationBoardRoot>(uri);
-        //}
         public StationBoardRoot GetStationBoard(string station, string id)
         {
             if (string.IsNullOrEmpty(station))
@@ -50,8 +35,8 @@
                 return this.GetObject<StationBoardRoot>(uri);
             }
 
-            var test2 = new Uri($"{WebApiHost}stationboard?station={station}");
-            return this.GetObject<StationBoardRoot>(test2);
+            var uri2 = new Uri($"{WebApiHost}stationboard?station={station}");
+            return this.GetObject<StationBoardRoot>(uri2);
         }
 
         public Connections GetConnections(string fromStation, string toStation, DateTime fromDate, DateTime fromTime)
@@ -67,22 +52,6 @@
                 return this.GetObject<Connections>(test);
             }
         }
-
-        //public Connections GetConnections(string fromStation, string toStation)
-        //{
-        //    if (string.IsNullOrEmpty(fromStation))
-        //    {
-        //        throw new ArgumentNullException(nameof(fromStation));
-        //    }
-
-        //    if (string.IsNullOrEmpty(toStation))
-        //    {
-        //        throw new ArgumentNullException(nameof(toStation));
-        //    }
-
-        //    var uri = new Uri($"{WebApiHost}connections?from={fromStation}&to={toStation}");
-        //    return this.GetObject<Connections>(uri);
-        //}
 
         public void Dispose()
         {

@@ -214,7 +214,6 @@
             this.btnMail.TabIndex = 4;
             this.btnMail.Text = "Email";
             this.btnMail.UseVisualStyleBackColor = true;
-            this.btnMail.Click += new System.EventHandler(this.btnMail_Click);
             // 
             // tbStationTo
             // 
@@ -312,11 +311,12 @@
             // 
             // tbStationTable
             // 
+            this.tbStationTable.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.tbStationTable.Location = new System.Drawing.Point(137, 27);
             this.tbStationTable.Name = "tbStationTable";
             this.tbStationTable.Size = new System.Drawing.Size(328, 31);
             this.tbStationTable.TabIndex = 1;
-            this.tbStationTable.TextChanged += new System.EventHandler(this.tbStationTable_TextChanged);
+            this.tbStationTable.TextChanged += new System.EventHandler(this.OnTextChanged);
             // 
             // lbStationTable
             // 
@@ -384,7 +384,6 @@
             this.tbStation.Name = "tbStation";
             this.tbStation.Size = new System.Drawing.Size(294, 31);
             this.tbStation.TabIndex = 4;
-            this.tbStation.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // lbStation
             // 
@@ -428,6 +427,7 @@
             // 
             // Form1
             // 
+            this.AcceptButton = this.btnSearch;
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
