@@ -1,16 +1,20 @@
 ﻿namespace SwissTransport.Core
 {
     using System;
+    using System.Net;
     using System.Net.Http;
     using System.Threading.Tasks;
     using Newtonsoft.Json;
     using SwissTransport.Models;
+
 
     public class Transport : ITransport, IDisposable
     {
         private const string WebApiHost = "https://transport.opendata.ch/v1/";
 
         private readonly HttpClient httpClient = new HttpClient();
+
+
 
         public Stations GetStations(string query)
         {
@@ -57,7 +61,6 @@
         {
             this.httpClient?.Dispose();
         }
-
         private T GetObject<T>(Uri uri)
         {
             HttpResponseMessage response = this.httpClient

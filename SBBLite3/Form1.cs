@@ -20,11 +20,8 @@ namespace SBBLite3
     {
         private readonly Transport _transport = new Transport();
         private string[] _currentStationNamesCollection = default;
-        //private const string _CurrentPositionText = "⌖ Aktueller Standort";
-        //private Size _formsize;
-        //private ListViewItem _focusedItem;
-        //private ListView _selectedListView;
-        //private string _emailText;
+
+        
 
         public Form1()
         {
@@ -107,19 +104,6 @@ namespace SBBLite3
             
             lvConnectionTab.Items.Clear();
             string fromStation = tbStationTable.Text;
-            //if (fromStation != "" )
-            //{
-            //    Connections possibleConnections;
-            //    possibleConnections = _transport.GetConnections(fromStation, "");
-            //    foreach (Connection connection in possibleConnections.ConnectionList)
-            //    {
-            //        var lvi = new ListViewItem(new string[] { connection.From.Departure.ToString(), connection.From.Station.Name, connection.From.Platform, connection.To.Station.Name, connection.Duration });
-            //        lvConnectionTab.Items.Add(lvi);
-            //        //string[] lineValue = { connection.From.ToString(), connection.To.ToString() };
-            //        //var listviewitem = new ListViewItem(lineValue);
-            //        //lvConnections.Items.Add(listviewitem);
-            //    }
-            //}
 
             if (fromStation != "")
             {
@@ -156,6 +140,11 @@ namespace SBBLite3
             }
 
 
+        }
+
+        private void btnMail_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Die App ist noch im Aufbau ;)");
         }
     }
 }

@@ -62,6 +62,7 @@
             this.tbStation = new System.Windows.Forms.TextBox();
             this.lbStation = new System.Windows.Forms.Label();
             this.tabLocation = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             this.connectionBindingSource5 = new System.Windows.Forms.BindingSource(this.components);
             this.stationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.connectionBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
@@ -81,6 +82,7 @@
             this.tabVerbindungen.SuspendLayout();
             this.tabAbfahrt.SuspendLayout();
             this.tabStations.SuspendLayout();
+            this.tabLocation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.connectionBindingSource5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stationBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.connectionBindingSource2)).BeginInit();
@@ -98,7 +100,8 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabVerbindungen);
             this.tabControl1.Controls.Add(this.tabAbfahrt);
@@ -133,7 +136,7 @@
             // dtpFromTime
             // 
             this.dtpFromTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpFromTime.Location = new System.Drawing.Point(465, 135);
+            this.dtpFromTime.Location = new System.Drawing.Point(465, 136);
             this.dtpFromTime.Name = "dtpFromTime";
             this.dtpFromTime.Size = new System.Drawing.Size(110, 31);
             this.dtpFromTime.TabIndex = 10;
@@ -198,7 +201,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(498, 73);
+            this.btnSearch.Location = new System.Drawing.Point(465, 73);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(197, 37);
             this.btnSearch.TabIndex = 5;
@@ -214,6 +217,7 @@
             this.btnMail.TabIndex = 4;
             this.btnMail.Text = "Email";
             this.btnMail.UseVisualStyleBackColor = true;
+            this.btnMail.Click += new System.EventHandler(this.btnMail_Click);
             // 
             // tbStationTo
             // 
@@ -268,7 +272,7 @@
             // 
             // btnAbfahrt
             // 
-            this.btnAbfahrt.Location = new System.Drawing.Point(502, 25);
+            this.btnAbfahrt.Location = new System.Drawing.Point(505, 35);
             this.btnAbfahrt.Name = "btnAbfahrt";
             this.btnAbfahrt.Size = new System.Drawing.Size(195, 34);
             this.btnAbfahrt.TabIndex = 11;
@@ -312,16 +316,16 @@
             // tbStationTable
             // 
             this.tbStationTable.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.tbStationTable.Location = new System.Drawing.Point(137, 27);
+            this.tbStationTable.Location = new System.Drawing.Point(157, 37);
             this.tbStationTable.Name = "tbStationTable";
-            this.tbStationTable.Size = new System.Drawing.Size(328, 31);
+            this.tbStationTable.Size = new System.Drawing.Size(294, 31);
             this.tbStationTable.TabIndex = 1;
             this.tbStationTable.TextChanged += new System.EventHandler(this.OnTextChanged);
             // 
             // lbStationTable
             // 
             this.lbStationTable.AutoSize = true;
-            this.lbStationTable.Location = new System.Drawing.Point(26, 30);
+            this.lbStationTable.Location = new System.Drawing.Point(29, 38);
             this.lbStationTable.Name = "lbStationTable";
             this.lbStationTable.Size = new System.Drawing.Size(106, 25);
             this.lbStationTable.TabIndex = 0;
@@ -396,12 +400,23 @@
             // 
             // tabLocation
             // 
+            this.tabLocation.Controls.Add(this.label1);
             this.tabLocation.Location = new System.Drawing.Point(4, 34);
             this.tabLocation.Name = "tabLocation";
             this.tabLocation.Size = new System.Drawing.Size(901, 550);
             this.tabLocation.TabIndex = 3;
             this.tabLocation.Text = "Mein Standort";
             this.tabLocation.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(99, 174);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(701, 45);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Google Maps funktioniert anscheinend besser :/";
             // 
             // connectionBindingSource5
             // 
@@ -444,6 +459,8 @@
             this.tabAbfahrt.PerformLayout();
             this.tabStations.ResumeLayout(false);
             this.tabStations.PerformLayout();
+            this.tabLocation.ResumeLayout(false);
+            this.tabLocation.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.connectionBindingSource5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stationBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.connectionBindingSource2)).EndInit();
@@ -511,5 +528,6 @@
         private Button btnSearchStations;
         private DateTimePicker dtpFromTime;
         private FontDialog fontDialog1;
+        private Label label1;
     }
 }
